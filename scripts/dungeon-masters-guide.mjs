@@ -11,7 +11,7 @@ Hooks.once("init", () => {
   CONFIG.DMG = {};
 
   // Register Journal Sheet
-  DocumentSheetConfig.registerSheet(JournalEntry, "dungeon-masters-guide", DMGJournalSheet, {
+  foundry.applications.apps.DocumentSheetConfig.registerSheet(JournalEntry, "dungeon-masters-guide", DMGJournalSheet, {
     types: ["base"],
     label: "城主指南 Dungeon Master's Guide (2024)",
     makeDefault: false
