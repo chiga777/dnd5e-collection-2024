@@ -1,31 +1,30 @@
 /* Tracker CSS */
-.app.sheet .dmg-tracker {
+.sheet .dmg-tracker {
 
-  --table-header-color: rgb(198, 206, 199);
-  --dnd5e-color-table-row-even: rgb(246, 248, 247);
-  --dnd5e-color-table-row-odd: rgb(230, 234, 231);
+  --section-shade-center: light-dark(rgba(224, 235, 232, 1), rgba(224, 235, 232, 0.3));
+  --section-shade-edge: light-dark(rgba(224, 235, 232, 0.3), transparent);
 
   margin-bottom: 1em;
 
-  & h1 {
+  h1 {
     color: var(--dmg-brown);
     text-align:center;
   }
 
-  & :is(h2) {
+  h2 {
     --phb-saturated-gold: transparent;
-    color: var(--dmg-chapter-color);
+    color: var(--narrative-border-color);
     text-align:center;
     margin:0;
   }
 
-  & h3 {
+  h3 {
     --phb-saturated-gold: transparent;
     color: var(--narrative-border-color);
   }
 
 
-  & h3:not(.label) {
+  h3:not(.label) {
     border-image: var(--tracker-border-image);
     width:fit-content;
     padding: 0 15%;
@@ -36,7 +35,6 @@
   & h4,
   & h5 {
     font-family: var(--font-h5);
-    color: var(--dmg-chapter-color);
     text-align:center;
 
     &.highlight {
@@ -44,16 +42,24 @@
     }
   }
 
-  & td {
+  h4 {
+    color: var(--narrative-border-color);
+  }
+
+  h5 {
+    color: var(--dmg-chapter-color);
+  }
+
+  td {
     padding:0 0 0 1em;
   }
 
-  & .settlement-size {
+  .settlement-size {
     display:grid;
     grid: auto / auto-flow 1fr;
   }
 
-  & .travel-info {
+  .travel-info {
 
     display: grid;
     grid:
@@ -64,53 +70,54 @@
     grid-auto-flow: column;
     gap:0 2em;
     padding: 0 5px 5px;
+    margin-bottom:1em;
 
-    & :is(h3,h4) {
+    h3, h4 {
       margin:0 10px 0 0;
     }
 
-    & .inline {
+    .inline {
       margin:0;
     }
 
-    margin-bottom:1em;
   }
 
-  & .inline {
+  .inline {
     display: flex;
     flex-grow: 1;
     align-items: center;
     margin: 10px 0;
   }
 
-  & .highlight {
+  .highlight {
+    color: light-dark(var(--narrative-border-color), var(--color-text-primary));
     background: linear-gradient(
       90deg,
-      rgba(224, 235, 232, 0.3) 5%,
-      rgba(224, 235, 232, 1) 50%,
-      rgba(224, 235, 232, 0.3) 100%
+      var(--section-shade-edge) 5%,
+      var(--section-shade-center) 50%,
+      var(--section-shade-edge) 100%
     );
     text-align: center;
     padding: 5px;
   }
 
-  & :is(.label),
-  & .label:is(h4, h5){
+  .label,
+  .label:is(h4, h5){
     margin: 0 10px 0 0;
     text-align:left;
   }
 
-  & .field {
-    border-bottom: 2px solid var(--narrative-border-color);
+  .field {
+    border-bottom: 2px solid var(--dmg-chapter-color);
     flex-grow: 1;
     padding: 5px;
 
-    & p {
+    p {
       margin-bottom: 0;
     }
   }
 
-  & .field.bubble {
+  .field.bubble {
     background-color: #fff;
     box-shadow: 0px 0px 2px 1px;
     border-radius: 100%;
@@ -121,13 +128,13 @@
     text-align: center;
     margin: 3px;
 
-    & p {
+    p {
       margin-top: -3px;
     }
   }
 
-  & .travel-info,
-  & .field.block {
+  .travel-info,
+  .field.block {
     min-height: 50px;
     background: linear-gradient(to top, var(--dmg-field-color), transparent);
     border: 1px solid var(--notable-color);
@@ -135,7 +142,7 @@
     border-radius:0 0 10px 10px;
   }
 
-  & .col {
+  .col {
     flex-grow: 1;
     margin: 5px;
   }

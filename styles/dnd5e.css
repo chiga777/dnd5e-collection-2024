@@ -1,9 +1,22 @@
-/* 定义系统字体 */
+@import url("variables.css");
+@import url("journal.css");
+@import url("blocks.css");
+@import url("table-of-contents.css");
+@import url("tracker-sheets.css");
+
+/** GLOBAL STYLES **/
+.wild-magic-surge table td:first-child {
+  min-width: 70px;
+
+}
+
+/* 定义系统 */
 :root {
-  --dnd5e-font-modesto: "Modesto Condensed", "Microsoft JhengHei", "Palatino Linotype", serif;
+  --dnd5e-font-modesto: "Modesto Condensed", "Microsoft JhengHei UI", "Palatino Linotype", serif;
   --dnd5e-font-roboto: Roboto, "Microsoft YaHei", sans-serif;
   --dnd5e-font-roboto-slab: "Roboto Slab", "Microsoft YaHei", serif;
   --dnd5e-font-roboto-condensed: "Roboto Condensed", "Microsoft YaHei", sans-serif;
+  --dnd5e-font-roboto-slab-jhehei: "Roboto Slab", "Microsoft JhengHei", sans-serif;
 }
 
 .dnd5e.sheet .warnings .notification,
@@ -29,14 +42,130 @@
   font-style: italic;
   font-size: 0.77em;
   border-top: 1px solid #aaa;
+  border-image: linear-gradient(
+    to left,
+    #aaa,
+    transparent 90%
+  );
+  border-image-slice: 1;
 }
 
+/* 篡改嵌入物品的标题样式
+.content-embed figcaption cite {
+  width: 100%;
+  margin: 0.7em 0 0.3em;
+  padding: 0.2em 0.2em;
+  text-align: right;
+  font-family: "Microsoft YaHei", serif;
+  font-style: italic;
+  font-size: 0.77em;
+  border-top: 1px solid #aaa;
+}
+
+.content-embed figcaption cite::before {
+  content: none;
+} */
+
+/* 物品描述中的标题强调 */
+.details.collapsible-content strong {
+  color: light-dark(#5a0507, #9f9275);
+}
+
+.details.collapsible-content.card-content strong {
+  color: #5a0507;
+}
+
+/* 日志标题强调 */
+.journal-entry:is(.phb, .dmg) {
+
+  strong {
+    color: var(--color-text-emphatic);
+  }
+
+  p:has(> strong:first-child)::before {
+    content: "";
+    display: inline-block;
+    width: 0.77em;
+  }
+  
+}
 /* 角色源注释 */
 .actor-original {
   font-size: 1.17em;
-  color: #bc0f0f;
+  color: light-dark(#bc0f0f, var(--dnd5e-color-gold));
   font-variant: small-caps;
   font-weight: bold;
+}
+
+/* 日志源注释 */
+.journal-entry:is(.phb, .dmg) {
+
+  .journal-page-header,
+  .journal-page-content,
+  h1,
+  h2,
+  h3 {
+    display: inline;
+  }
+
+  .journal-original-h1,
+  .journal-original-h2,
+  .journal-original-h3 {
+    display: inline;
+    font-size: 0.77em;
+    color: var(--color-text-emphatic);
+    font-family: "Microsoft YaHei", serif;
+    font-style: italic;
+    margin-left: 0.33em;
+  }
+
+  h2 {
+    border-bottom: none !important;
+  }
+
+  .dmg-tracker h1,
+  .dmg-tracker h2,
+  .dmg-tracker h3 {
+  display: revert;
+}
+
+}
+
+.journal-entry .journal-original-h1::after {
+  content: "";
+  display: block;
+}
+
+.journal-entry .journal-original-h2::after {
+  content: "";
+  display: block;
+  border-bottom: 2px solid var(--phb-saturated-gold);
+  border-image: linear-gradient(
+  to right,
+  var(--phb-saturated-gold),
+  transparent 90%
+  );
+  border-image-slice: 0 0 1 0;
+}
+
+.journal-entry .journal-original-h3::after {
+  content: "";
+  display: block;
+}
+
+.journal-original-h1,
+.journal-original-h2,
+.journal-original-h3 {
+  display: none;
+}
+
+/* 篡改 notable 系列以及 tooltip 中的标题样式 */
+:is(.notable, .advice, .quest, .narrative) :is(h1, h2, h3, h4, h5) {
+  font-family: var(--dnd5e-font-roboto-slab-jhehei);
+}
+
+:is(#tooltip, .locked-tooltip).dnd5e-tooltip :is(h1, h2, h3, h4, h5) {
+  font-family: var(--dnd5e-font-roboto-slab-jhehei);
 }
 
 /* 物品引文 */
@@ -59,19 +188,21 @@
   color: var(--dnd5e-color-gold);
 }
 
-.content-embed .dc7-note {
-  display: none;
-}
-
+.journal-entry .dc7-note,
+.content-embed .dc7-note,
 :is(#tooltip, .locked-tooltip).dnd5e-tooltip .dc7-note {
-  display: none !important;
+  display: none;
 }
 
 /* 日志中的物品标题 */
 .journal-entry .item-title {
   font-size: 1.17em;
   font-weight: bold;
-  color: var(--phb-red);
+  color: var(--color-text-emphatic);
+}
+
+.journal-entry .item-title a.content-link {
+  color: var(--color-text-emphatic);
 }
 
 /* 表格标题 */
@@ -79,6 +210,11 @@
   font-family: var(--dnd5e-font-roboto-slab);
   font-variant: small-caps;
   font-weight: bold;
+}
+
+/* 篡改日志中表格的元素，以确保其被 column 正确拆分 */
+.journal-entry table {
+  overflow: visible;
 }
 
 /* 修改 Details Summary 样式 */
@@ -117,70 +253,42 @@ details[open] summary {
   box-shadow: 0 0 4px var(--dnd5e-shadow-45);
 }
 
-/* 修改物品卡的图标样式 */
-.dnd5e2.sheet.item .sheet-header .item-image {
-  display: block;
-  width: 90px;
-  height: 90px;
-  border-radius: 2%;
-  border: 3px solid var(--dnd5e-color-gold);
-  box-shadow: 0 0 4px var(--dnd5e-shadow-45);
-  object-fit: cover;
-  background: var(--dnd5e-color-light-gray);
-  margin: 0;
-  color: var(--color-light-1);
-  text-align: center;
-  align-content: center;
-}
-
-/* 修改系统工具提示的图标样式 */
-:is(#tooltip, .locked-tooltip):is(.item-tooltip, .effect-tooltip) .header img {
-  width: 60px;  
-  height: 60px;
-  border: 2px solid var(--dnd5e-color-gold);
-  box-shadow: 0 0 4px var(--dnd5e-shadow-45);
-  border-radius: 5%;
-  object-fit: cover;
-  background: var(--dnd5e-color-light-gray);
-}
-
-/* Rarity Color 测试*/
+/* Rarity Color */
 .rarity-uncommon {
   background:
     url("../assets/ui/rarity-color/uncommon-back.webp") center/contain no-repeat,
-    var(--dnd5e-color-light-gray) !important;
-  border-image-source: url('../assets/ui/rarity-color/uncommon-front.webp') !important;
-  border-image-slice: 3 !important;
+    var(--dnd5e-background-alt-1);
+  border: 2px solid #01c03c;
 }
 
 .rarity-rare {
   background:
     url("../assets/ui/rarity-color/rare-back.webp") center/contain no-repeat,
-    var(--dnd5e-color-light-gray) !important;
-  border-image-source: url('../assets/ui/rarity-color/rare-front.webp') !important;
-  border-image-slice: 3 !important;
+    var(--dnd5e-background-alt-1);
+  border-image-source: url('../assets/ui/rarity-color/rare-front.webp');
+  border: 2px solid #00c2ff;
 }
 
-.rarity-veryrare {
+.rarity-veryRare {
   background:
     url("../assets/ui/rarity-color/veryrare-back.webp") center/contain no-repeat,
-    var(--dnd5e-color-light-gray) !important;
-  border-image-source: url('../assets/ui/rarity-color/veryrare-front.webp') !important;
-  border-image-slice: 3 !important;
+    var(--dnd5e-background-alt-1);
+  border-image-source: url('../assets/ui/rarity-color/veryrare-front.webp');
+  border: 2px solid #c90277;
 }
 
 .rarity-legendary {
   background:
     url("../assets/ui/rarity-color/legendary-back.webp") center/contain no-repeat,
-    var(--dnd5e-color-light-gray) !important;
-  border-image-source: url('../assets/ui/rarity-color/legendary-front.webp') !important;
-  border-image-slice: 3 !important;
+    var(--dnd5e-background-alt-1);
+  border-image-source: url('../assets/ui/rarity-color/legendary-front.webp');
+  border: 2px solid #f5ca71;
 }
 
 .rarity-artifact {
   background:
     url("../assets/ui/rarity-color/artifact-back.webp") center/contain no-repeat,
-    var(--dnd5e-color-light-gray) !important;
-  border-image-source: url('../assets/ui/rarity-color/artifact-front.webp') !important;
-  border-image-slice: 3 !important;
+    var(--dnd5e-background-alt-1);
+  border-image-source: url('../assets/ui/rarity-color/artifact-front.webp');
+  border: 2px solid #ec3e4c;
 }
