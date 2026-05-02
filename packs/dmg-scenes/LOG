@@ -1,5 +1,5 @@
-2026/05/02-16:22:04.669 4750 Delete type=3 #1
-2026/05/02-16:22:04.685 53dc Level-0 table #5: started
-2026/05/02-16:22:04.692 53dc Level-0 table #5: 581500 bytes OK
-2026/05/02-16:22:04.692 53dc Delete type=0 #3
-2026/05/02-16:22:04.693 53dc Manual compaction at level-0 from '!folders!6fqUFq5PtD28l5aN' @ 72057594037927935 : 1 .. '!scenes.walls!dmgWizardsTower0.zx6cCmJML8UR7XWM' @ 0 : 0; will stop at (end)
+2026/05/02-18:35:24.154 2d98 Delete type=3 #1
+2026/05/02-18:35:24.169 1f68 Level-0 table #5: started
+2026/05/02-18:35:24.176 1f68 Level-0 table #5: 581500 bytes OK
+2026/05/02-18:35:24.176 1f68 Delete type=0 #3
+2026/05/02-18:35:24.177 1f68 Manual compaction at level-0 from '!folders!6fqUFq5PtD28l5aN' @ 72057594037927935 : 1 .. '!scenes.walls!dmgWizardsTower0.zx6cCmJML8UR7XWM' @ 0 : 0; will stop at (end)
