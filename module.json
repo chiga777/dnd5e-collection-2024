@@ -255,8 +255,8 @@
     }
   ],
     "url": "https://github.com/chiga777/dnd5e-collection-2024",
-    "manifest": "https://raw.githubusercontent.com/chiga777/dnd5e-collection-2024/main/module.json",
-    "download": "https://gitee.com/chiga777/dnd5e-collection-2024/releases/download/2.0.0/dc7-2024-2.0.0.zip",
+    "manifest": "",
+    "download": "",
     "flags": {
         "dnd5e": {
             "sourceBooks": {

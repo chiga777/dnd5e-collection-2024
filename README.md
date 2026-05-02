@@ -1,8 +1,8 @@
-# D&D5E 合集 (2024) for Foundry Virtual Tabletop
+# D&D5.5E 合集 for Foundry Virtual Tabletop
 
-![Supported Versions](https://img.shields.io/badge/FVTT-v12-8b0000?style=flat-square) ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/chiga777/dnd5e_collection_2024?style=flat-square) ![GitHub all releases](https://img.shields.io/github/downloads/chiga777/dnd5e_collection_2024/total?style=flat-square) [![Bilibili](https://img.shields.io/badge/Bilibili-千菓チカ"-00A1D6?logo=Bilibili&logoColor=white&style=flat-square)](https://space.bilibili.com/37702076) [![Bilibili](https://img.shields.io/badge/支援-千菓チカ"-FF69B4?logo=Bilibili&logoColor=white&style=flat-square)](https://www.bilibili.com/opus/1004555041941487616)
+![Supported Versions](https://img.shields.io/badge/FVTT-v13-8b0000?style=flat-square) ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/chiga777/dnd5e_collection_2024?style=flat-square) ![GitHub all releases](https://img.shields.io/github/downloads/chiga777/dnd5e_collection_2024/total?style=flat-square) [![Bilibili](https://img.shields.io/badge/Bilibili-千菓チカ"-00A1D6?logo=Bilibili&logoColor=white&style=flat-square)](https://space.bilibili.com/37702076) [![Bilibili](https://img.shields.io/badge/支援-千菓チカ"-FF69B4?logo=Bilibili&logoColor=white&style=flat-square)](https://www.bilibili.com/opus/1004555041941487616) [![QQ 群](https://img.shields.io/badge/交流群-1076780320-4c8bf5?logo=qq&logoColor=white&style=flat-square)](https://qm.qq.com/q/W5IeWAlt0M) 
 
-🌟嗨！这里是千菓チカ"。我正于该模块整合 D&D5E 2024 的资源，并制作本地化内容。
+🌟嗨！这里是千菓チカ"。我正于该模块整合 D&D5.5E 的资源，并制作本地化内容。
 
 ## 🏁 里程碑
 
