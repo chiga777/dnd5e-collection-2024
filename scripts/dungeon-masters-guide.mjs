@@ -1,4 +1,4 @@
-import DMGJournalSheet from "./apps/dmg-journal-sheet.mjs";
+import DMGJournalSheet from "./apps/journal-sheet-dmg.mjs";
 import {initialize2014Redirects, initialize2024Redirects} from "./redirects.mjs";
 
 /* -------------------------------------------- */
@@ -17,7 +17,7 @@ Hooks.once("init", () => {
     makeDefault: false
   });
 
-  if ( game.modules.get("dnd-monster-manual")?.active ) initialize2024Redirects();
+  if ( game.modules.get("monster-manual")?.active ) initialize2024Redirects();
   else initialize2014Redirects();
 
 });

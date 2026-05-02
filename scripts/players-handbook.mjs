@@ -1,4 +1,4 @@
-import PHBJournalSheet from "./apps/phb-journal-sheet.mjs";
+import PHBJournalSheet from "./apps/journal-sheet-phb.mjs";
 import {
   replacementAbilityReferences,
   replacementConditionTypes,
@@ -14,15 +14,6 @@ import {
 /* -------------------------------------------- */
 
 Hooks.once("init", () => {
-
-  game.settings.register("dnd5e-collection-2024", "lastVersion", {
-    name: "PHB.SETTING.VERSION.name",
-    hint: "PHB.SETTING.VERSION.hint",
-    scope: "world",
-    config: false,
-    type: String,
-    default: "1.0.0"
-  })
 
   // Creating PHB config object
   CONFIG.PHB = {};
@@ -139,17 +130,4 @@ Hooks.once("init", () => {
     weaver: { id: "Compendium.dnd5e-collection-2024.phb-content.Item.MXOWdIEzv1202LNQ" },
     woodcarver: { id: "Compendium.dnd5e-collection-2024.phb-content.Item.buRZLru2HNCpCvp6" }
   });
-});
-
-Hooks.once("ready", async () => {
-  // Handle showing changelog
-  const currentVersion = game.modules.get("dnd5e-collection-2024").version;
-  const lastVersion = game.settings.get("dnd5e-collection-2024", "lastVersion");
-
-  if (foundry.utils.isNewerVersion(currentVersion, lastVersion)) {
-    const journal = await fromUuid("Compendium.dnd5e-collection-2024.index.JournalEntry.LIJ2edVRwBsE8HgV");
-    const page = journal.pages.contents[journal.pages.contents.length - 1];
-    journal.sheet.render(true, {pageId: page.id});
-    game.settings.set("dnd5e-collection-2024", "lastVersion", currentVersion)
-  }
 });

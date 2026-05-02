@@ -11,36 +11,210 @@
      * to match book
      */
     & .journal-header .title {
-      --input-text-color: var(--phb-chapter-color);
+      font-weight: bold;
+      letter-spacing: 1px;
+      color: transparent;
+      background: var(--phb-title-gradient);
+      background-clip: text;
     }
 
     & h4:not(.statblock-title) {
-      border:none;
+      border: none;
     }
 
   }
+
 }
 
 /* ---------------------------------------- */
 /*  DMG                                     */
 /* ---------------------------------------- */
 .dmg {
+
   .journal-entry-content {
     border-image: var(--dmg-border-image);
   }
 
   /* pad bottom of journal pages to show page bottom decoration */
   & .journal-entry-pages {
-    margin-bottom:2rem;
+    margin-bottom: 2rem;
   }
 
   /*
    * Journal Header/Chapter styling to match book
    */
   & .journal-header .title {
-    --input-text-color: var(--dmg-chapter-color);
-    &:not(:hover) {
-      background: transparent;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: transparent;
+    background: var(--dmg-title-gradient);
+    background-clip: text;
+  }
+
+}
+
+/* ---------------------------------------- */
+/*  MM                                      */
+/* ---------------------------------------- */
+.mm {
+
+  /* default MM journal column layout */
+  .journal-page-content {
+    columns: var(--column-count) var(--column-width);
+    gap: var(--column-gap);
+
+    /* Avoids a "double top margin" when embedding
+     * a journal page */
+    &>figure.content-embed:first-child {
+      margin-top: 0;
+    }
+
+    .statblock.npc {
+      max-width: calc(1.5 * var(--column-width));
+      width: 100%;
+      clear: both;
+      margin: auto;
+
+      & .statblock-actions-title {
+        break-after: avoid;
+      }
+    }
+
+    .double-column {
+      column-span: all;
+
+      .statblock.npc {
+        max-width: calc(3 * var(--column-width));
+
+        .statblock-content {
+          column-width: calc(0.75 * var(--column-width));
+        }
+      }
     }
   }
+
+  /* Appendix A journal layout -- 2xN grid */
+  .statblock-list {
+
+    /* Layout variable adjustment */
+    --column-count: 1;
+
+    /* quotes should be approx. the size
+     * of the column (statblock) */
+    :is(.quote, .quote-left) {
+      --size: 90%;
+      float: none;
+      clear: none;
+    }
+
+    /* parent wrapper of all pages */
+    .journal-entry-pages {
+      display: grid;
+      grid-template-columns:
+        repeat(var(--grid-column-count), minmax(auto, calc(2 * var(--column-width))));
+      grid-auto-flow: row dense;
+      gap: var(--column-gap);
+
+      .journal-entry-page {
+        /* tighten page width to content for layout flexibility */
+        width: fit-content;
+        margin-top: unset;
+
+        /* Pages with any 'side by side' child element is treated like a
+         * 'facing' book view -- span all grid columns and create a 2x1 subgrid
+         */
+        &:has(.side-by-side) {
+          grid-column: span var(--grid-column-count);
+
+          .side-by-side {
+            align-self: center;
+          }
+
+          .journal-page-content {
+            grid-template-columns: 1fr 1fr;
+            display: grid;
+            grid-auto-flow: column;
+          }
+        }
+
+
+        /* pages of only text span grid columns */
+        &:not(:has(.statblock)) {
+          grid-column: span var(--grid-column-count);
+        }
+
+        /* pages with images or manually indicated span two rows */
+        &:has(.journal-page-content .long-statblock),
+        &:has(.journal-page-content img) {
+          grid-row: span 2;
+        }
+
+        .journal-page-content {
+
+          .content-embed {
+            margin: 0;
+
+            img {
+              max-height: calc(1.5 * var(--column-width));
+            }
+
+            img+figcaption cite {
+              display: none;
+            }
+          }
+
+          /* floated items should now consume entire width,
+           * but remain floating to 'insert' itself into
+           * the statblock framing */
+          .float-left,
+          .float-right {
+            --local-width: 100%;
+            --dnd5e-block-float-max: 100%;
+            /*width: 100%;*/
+            margin: 0;
+            padding: 10px 10px 0;
+
+            img {
+              max-height: var(--column-width);
+            }
+          }
+
+          .statblock.npc {
+            width: 100%;
+            clear: none;
+            margin: 0;
+
+            .statblock-title {
+              clear: right;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  & .journal-entry-content {
+    border-image: var(--mm-border-image);
+
+    /* add some margin to bottom of page to
+     * show page bg bottom decoration better */
+    & .journal-entry-pages {
+      margin-bottom: 2rem;
+    }
+
+    /**
+     * Title and Header styling
+     * to match book
+     **/
+    & .journal-header .title {
+      font-family: var(--dnd5e-font-roboto-slab);
+      font-weight: bold;
+      letter-spacing: 1px;
+      color: transparent;
+      background: var(--mm-title-gradient);
+      background-clip: text;
+    }
+
+  }
+
 }

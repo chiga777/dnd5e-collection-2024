@@ -1,0 +1,39 @@
+/* Rarity Color */
+.rarity-uncommon {
+  background:
+    url("../assets/ui/rarity-color/uncommon-back.webp") center/contain no-repeat,
+    var(--dnd5e-background-alt-1);
+  border: 2px solid #01c03c;
+}
+
+.rarity-rare {
+  background:
+    url("../assets/ui/rarity-color/rare-back.webp") center/contain no-repeat,
+    var(--dnd5e-background-alt-1);
+  border-image-source: url('../assets/ui/rarity-color/rare-front.webp');
+  border: 2px solid #00c2ff;
+}
+
+.rarity-veryRare {
+  background:
+    url("../assets/ui/rarity-color/veryrare-back.webp") center/contain no-repeat,
+    var(--dnd5e-background-alt-1);
+  border-image-source: url('../assets/ui/rarity-color/veryrare-front.webp');
+  border: 2px solid #c90277;
+}
+
+.rarity-legendary {
+  background:
+    url("../assets/ui/rarity-color/legendary-back.webp") center/contain no-repeat,
+    var(--dnd5e-background-alt-1);
+  border-image-source: url('../assets/ui/rarity-color/legendary-front.webp');
+  border: 2px solid #f5ca71;
+}
+
+.rarity-artifact {
+  background:
+    url("../assets/ui/rarity-color/artifact-back.webp") center/contain no-repeat,
+    var(--dnd5e-background-alt-1);
+  border-image-source: url('../assets/ui/rarity-color/artifact-front.webp');
+  border: 2px solid #ec3e4c;
+}

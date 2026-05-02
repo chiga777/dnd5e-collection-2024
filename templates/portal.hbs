@@ -1,0 +1,111 @@
+{{#*inline "pages"}}
+<ul class="pages">
+    {{#each pages}}
+    {{#unless flags.dnd5e.tocHidden}}
+    <li class="{{#if (and showPages pages.length)}}child-pages{{/if}} {{#if entry}}special-entry{{/if}}">
+        <a class="journal-entry-page-link" data-action="activateEntry"
+           {{~#if entry}} data-document-id="{{ id }}" data-entry-id="{{ id }}"
+           {{~else}} data-page-id="{{ id }}" {{#if entryId}}data-entry-id="{{ entryId }}"{{/if}}{{/if}}>
+           {{ name }}
+        </a>
+        {{#if (and showPages pages.length)}}{{> "pages" }}{{/if}}
+    </li>
+    {{/unless}}
+    {{/each}}
+</ul>
+{{/inline}}
+
+
+<article>
+
+    {{!-- ============================== --}}
+    {{!-- Header --}}
+    {{!-- ============================== --}}
+    {{#if header}}
+    <aside>
+        <header>
+            <h2>{{ header.title }}</h2>
+        </header>
+        <section>{{{ header.content }}}</section>
+    </aside>
+    {{/if}}
+
+
+    {{!-- ============================== --}}
+    {{!-- Bookshelf --}}
+    {{!-- ============================== --}}
+    {{#if bookshelf.length}}
+    <section class="bookshelf">
+
+        <div class="bookshelf-groups">
+
+            {{!-- 分组 --}}
+            {{#each bookshelf}}
+            <div class="books-group">
+
+                {{!-- 分组标题 --}}
+                <h3 class="group-title">{{this.label}}</h3>
+                <hr class="ampersand">
+
+                {{!-- 分组内书籍 --}}
+                <div class="books">
+                    {{#each this.books}}
+                    <div class="book" data-pack="{{this.pack}}">
+                        <div class="book-cover">
+                            <img src="{{this.img}}" />
+
+                            {{#if this.actions.length}}
+                            <div class="book-actions">
+                                {{#each this.actions}}
+                                <button
+                                    type="button"
+                                    class="book-action"
+                                    data-action="openPack"
+                                    data-pack="{{this.pack}}"
+                                    title="{{this.packLabel}}">
+                                    {{this.label}}
+                                </button>
+                                {{/each}}
+                            </div>
+                            {{/if}}
+                        </div>
+                        <div class="title">{{this.label}}</div>
+                    </div>
+                    {{/each}}
+                </div>
+
+            </div>
+            {{/each}}
+
+        </div>
+
+    </section>
+    {{/if}}
+
+
+    {{!-- ============================== --}}
+    {{!-- TOC --}}
+    {{!-- ============================== --}}
+    <div class="contents">
+        <header>
+            <h2>{{ localize "DND5E.Contents" }}</h2>
+        </header>
+
+        <section>
+            {{#each chapters}}
+            <div class="chapter" data-document-id="{{ id }}" data-entry-id="{{ id }}">
+                <h3>
+                    <a class="journal-entry-link" data-action="activateEntry">
+                        {{ name }}
+                    </a>
+                </h3>
+
+                {{#if pages.length}}
+                    {{> "pages" }}
+                {{/if}}
+            </div>
+            {{/each}}
+        </section>
+    </div>
+
+</article>

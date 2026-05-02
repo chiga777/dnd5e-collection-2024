@@ -8,14 +8,14 @@
 
   h1 {
     color: var(--dmg-brown);
-    text-align:center;
+    text-align: center;
   }
 
   h2 {
     --phb-saturated-gold: transparent;
     color: var(--narrative-border-color);
-    text-align:center;
-    margin:0;
+    text-align: center;
+    margin: 0;
   }
 
   h3 {
@@ -26,7 +26,7 @@
 
   h3:not(.label) {
     border-image: var(--tracker-border-image);
-    width:fit-content;
+    width: fit-content;
     padding: 0 15%;
     margin-left: auto;
     margin-right: auto;
@@ -35,10 +35,10 @@
   & h4,
   & h5 {
     font-family: var(--font-h5);
-    text-align:center;
+    text-align: center;
 
     &.highlight {
-      font-size:larger;
+      font-size: larger;
     }
   }
 
@@ -51,11 +51,11 @@
   }
 
   td {
-    padding:0 0 0 1em;
+    padding: 0 0 0 1em;
   }
 
   .settlement-size {
-    display:grid;
+    display: grid;
     grid: auto / auto-flow 1fr;
   }
 
@@ -63,21 +63,19 @@
 
     display: grid;
     grid:
-      ". ." 1fr
-      ". ." 1fr
-      ". ." 1fr
-    / 1.5fr 1fr;
+      ". ." 1fr ". ." 1fr ". ." 1fr / 1.5fr 1fr;
     grid-auto-flow: column;
-    gap:0 2em;
+    gap: 0 2em;
     padding: 0 5px 5px;
-    margin-bottom:1em;
+    margin-bottom: 1em;
 
-    h3, h4 {
-      margin:0 10px 0 0;
+    h3,
+    h4 {
+      margin: 0 10px 0 0;
     }
 
     .inline {
-      margin:0;
+      margin: 0;
     }
 
   }
@@ -91,20 +89,18 @@
 
   .highlight {
     color: light-dark(var(--narrative-border-color), var(--color-text-primary));
-    background: linear-gradient(
-      90deg,
-      var(--section-shade-edge) 5%,
-      var(--section-shade-center) 50%,
-      var(--section-shade-edge) 100%
-    );
+    background: linear-gradient(90deg,
+        var(--section-shade-edge) 5%,
+        var(--section-shade-center) 50%,
+        var(--section-shade-edge) 100%);
     text-align: center;
     padding: 5px;
   }
 
   .label,
-  .label:is(h4, h5){
+  .label:is(h4, h5) {
     margin: 0 10px 0 0;
-    text-align:left;
+    text-align: left;
   }
 
   .field {
@@ -138,8 +134,8 @@
     min-height: 50px;
     background: linear-gradient(to top, var(--dmg-field-color), transparent);
     border: 1px solid var(--notable-color);
-    border-top:none;
-    border-radius:0 0 10px 10px;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
   }
 
   .col {
@@ -147,4 +143,3 @@
     margin: 5px;
   }
 }
-

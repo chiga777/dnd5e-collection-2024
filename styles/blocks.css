@@ -50,7 +50,7 @@
       padding-inline-start: 0.25rem;
       padding-inline-end: 0.25rem;
     }
-    
+
   }
 
   .features-table th {
@@ -63,10 +63,10 @@
    * summaries get.
    */
   .subclass table td {
-    text-align:center;
+    text-align: center;
 
     &.features {
-      text-align:left;
+      text-align: left;
     }
   }
 
@@ -183,19 +183,21 @@
   }
 
   /* Notable/Advice Block Headings */
-  .notable, .advice, .quest, .narrative, figcaption {
+  .notable,
+  .advice,
+  .quest,
+  .narrative,
+  figcaption {
     --color-text-emphatic: var(--color-text-primary);
   }
 
   /* SOCIAL EXAMPLES */
   & .social-example {
     /*color: var(--color-text-dark-primary);*/
-    background: linear-gradient(
-      90deg,
-      var(--phb-social-background) 0%,
-      var(--phb-social-background) 50%,
-      transparent 100%
-    );
+    background: linear-gradient(90deg,
+        var(--phb-social-background) 0%,
+        var(--phb-social-background) 50%,
+        transparent 100%);
     padding: 10px 30px;
 
     & .highlighted {
@@ -260,6 +262,7 @@
   }
 
   & .roll-table-embed {
+
     /* Numerical ranges in the first column of roll tables
     are best displayed without line breaks.
     Centering follows wotc styling. */
@@ -279,7 +282,7 @@
     flex-direction: column;
     margin-top: 0;
 
-    & p + p {
+    & p+p {
       margin-top: 0;
     }
 
@@ -299,7 +302,7 @@
     /* RollTable embeds place their HTML description within the caption.
 Inherit weight from parent container and style the citation
 to look like the others */
-    & .roll-table-embed + figcaption {
+    & .roll-table-embed+figcaption {
       font-weight: inherit;
 
       & cite {
@@ -362,12 +365,14 @@ figure.content-embed.dmg,
     /* Match header cell hor. padding
      * to better left align cell text
      */
-    td, th {
+    td,
+    th {
       padding-inline-start: 0.25rem;
     }
 
     thead {
       text-align: left;
+
       tr {
         color: var(--table-header-text-color);
       }
@@ -397,7 +402,11 @@ figure.content-embed.dmg,
   }
 
   /* Notable/Advice Block Headings */
-  .notable, .advice, .quest, .narrative, figcaption {
+  .notable,
+  .advice,
+  .quest,
+  .narrative,
+  figcaption {
     --color-text-emphatic: var(--color-text-primary);
   }
 
@@ -451,7 +460,7 @@ figure.content-embed.dmg,
   }
 
   & .social-callouts {
-    flex-shrink:1.1;
+    flex-shrink: 1.1;
   }
 
   /* Callouts */
@@ -492,6 +501,7 @@ figure.content-embed.dmg,
 #tooltip .hide-in-embed {
   display: none;
 }
+
 /* @Embed formatting for the following:
  *  - Within .dmg elements
  *  - With .dmg class
@@ -507,6 +517,7 @@ figure.content-embed[data-uuid^="Compendium.dnd5e-collection-2024"] {
   }
 
   & .roll-table-embed {
+
     /* Numerical ranges in the first column of roll tables
              are best displayed without line breaks.
              Centering follows wotc styling. */
@@ -526,7 +537,7 @@ figure.content-embed[data-uuid^="Compendium.dnd5e-collection-2024"] {
     flex-direction: column;
     margin-top: 0;
 
-    & p + p {
+    & p+p {
       margin-top: 0;
     }
 
@@ -546,7 +557,7 @@ figure.content-embed[data-uuid^="Compendium.dnd5e-collection-2024"] {
     /* RollTable embeds place their HTML description within the caption.
              Inherit weight from parent container and style the citation
              to look like the others */
-    & .roll-table-embed + figcaption {
+    & .roll-table-embed+figcaption {
       font-weight: inherit;
 
       & cite {
@@ -554,6 +565,514 @@ figure.content-embed[data-uuid^="Compendium.dnd5e-collection-2024"] {
         font-weight: bold;
         margin-top: 0.5em;
       }
+    }
+  }
+}
+
+/* ---------------------------------------- */
+/*  MM                                      */
+/* ---------------------------------------- */
+.mm {
+  a:hover {
+    text-shadow: var(--mm-link-shadow);
+  }
+
+  h2 {
+    border-bottom: 1px solid var(--mm-h-border-color);
+    border-image: linear-gradient(to right, var(--mm-h-border-color), transparent 80%);
+    border-image-slice: 0 0 1 0;
+  }
+
+  /* TABLES */
+  table:not(.statblock table),
+  table.roll-table-embed {
+    break-inside: avoid;
+
+    & caption {
+
+      &,
+      & :is(h1, h2, h3, h4) {
+        text-align: left;
+        font-weight: bold;
+        font-family: var(--dnd5e-font-roboto);
+      }
+    }
+
+    & thead th p,
+    & tbody td p {
+      margin: 0;
+    }
+
+    thead {
+      color: var(--table-header-text);
+      text-align: left;
+    }
+
+    th,
+    td {
+      padding-left: 1rem;
+    }
+
+    tbody tr:hover {
+      background-color: var(--table-color-hover);
+    }
+  }
+
+  /* NPC Habitat and Treasure blocks */
+  & .habitat-treasure {
+    background-color: light-dark(var(--mm-yellow), var(--dnd5e-color-blue-gray-2));
+    padding: 2px;
+
+    /* restricts background color to text area */
+    border-top: 1px solid light-dark(var(--mm-gold), var(--dnd5e-color-blue-gray-3));
+    display: table;
+  }
+
+  /* "Word Lists" (e.g. appx B) */
+
+  ul.word-list,
+  :is(p, h4):has(+ ul),
+  h4+ul {
+    font-family: var(--dnd5e-font-roboto);
+
+    &:is(p) {
+      column-span: all;
+    }
+
+    &:is(h4) {
+      letter-spacing: 1px;
+      font-variant: small-caps;
+      column-span: all;
+
+      &:not(:first-of-type) {
+        border: 2px solid var(--mm-gold);
+        border-image: radial-gradient(circle farthest-side at top, var(--mm-gold) 0%, rgba(0, 0, 0, 0) 95%);
+        border-image-slice: 1 0 0 0;
+        margin-block-start: 0.5em;
+        padding-block-start: 0.5em;
+      }
+    }
+
+    &:is(ul) {
+      list-style: none;
+      padding-inline-start: 0;
+      columns: calc(0.5 * var(--column-width));
+      break-before: avoid;
+      margin-block-start: 0;
+    }
+
+    & li {
+      line-height: 1.5;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+
+      &:first-of-type {
+
+        &,
+        p {
+          margin-block-start: 0;
+        }
+      }
+
+      /* decorate linked list item on HOVER
+       * to reduce visual noise/match print styling
+       */
+      & .content-link {
+        display: inline-flex;
+        text-decoration-line: none;
+        flex-direction: row-reverse;
+        gap: 0.25em;
+
+        & i {
+          display: none;
+          align-self: center;
+        }
+
+        &:hover i {
+          display: inline;
+        }
+      }
+    }
+  }
+
+  & .quote-left,
+  & .quote {
+    font-family: Turncoat;
+    font-size: small;
+    font-size-adjust: cap-height 0.66;
+    text-wrap: pretty;
+
+    /* position */
+    position: relative;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    justify-self: center;
+    clear: right;
+    float: right;
+
+    &:is(.quote-left) {
+      clear: left;
+      float: left;
+    }
+
+    box-sizing: border-box;
+    color: var(--mm-brown);
+    background: var(--mm-tan);
+
+    width: var(--size);
+    margin: var(--edge);
+    border: calc(2 * var(--w)) solid var(--mm-brown);
+    border-radius: 2em;
+
+    break-inside:avoid;
+
+    &>p {
+      margin: 0 var(--side-gutter);
+
+      &:first-of-type {
+        margin-top: var(--vert-gutter);
+      }
+
+      &:last-of-type {
+        margin-bottom: var(--vert-gutter);
+      }
+    }
+
+    /* inset and indent quote author/sig */
+    & .quote-author {
+      margin-left: calc(10% + var(--side-gutter));
+      text-wrap: pretty;
+      text-indent: 1em;
+      text-align: right;
+      justify-self: end;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: var(--overlap);
+      bottom: var(--overlap);
+      left: var(--overlap);
+      right: var(--overlap);
+
+      background: var(--mm-brown);
+      clip-path: var(--octogon);
+    }
+  }
+
+  img,
+  figure img {
+    border: none;
+    box-shadow: none;
+  }
+
+  /* UTILITY */
+  & .lift-50 {
+    margin-top: -3rem;
+  }
+
+  & .lift-1 {
+    margin-top: -1rem;
+  }
+
+  & .hike-3 {
+    margin-bottom: -1rem;
+
+    & img {
+      margin-bottom: -2rem;
+    }
+  }
+
+  & .hike-1 {
+    margin-bottom: -0rem;
+
+    & img {
+      margin-bottom: -1.5rem;
+    }
+  }
+
+  & .balor-cut {
+    clear: both;
+    float: left;
+    padding-right: 5%;
+
+    shape-outside: polygon(0 0,
+        100% 0,
+        100% 50%,
+        60% 50%,
+        60% 85%,
+        10% 85%,
+        10% 100%,
+        0 100%);
+
+    &.content-embed+.creature-flavor+.habitat-treasure {
+      display: inline-grid;
+      grid-template-columns: auto auto;
+      grid-auto-flow: row;
+      gap: 0.5ch;
+    }
+  }
+
+  & .nalfesh-cut {
+    clear: both;
+    float: left;
+
+    padding-right: 20%;
+    shape-outside: polygon(0 0,
+        100% 0,
+        100% 15%,
+        60% 15%,
+        60% 100%,
+        0 100%);
+
+    &.content-embed figcaption cite {
+      text-align: left;
+    }
+
+    &.content-embed+.creature-flavor+.habitat-treasure {
+      display: inline-grid;
+      grid-template-columns: auto auto;
+      grid-auto-flow: row;
+      gap: 0.5ch;
+    }
+  }
+
+  & .no-col {
+    column-span: all;
+  }
+
+  & ul.columns-two {
+    columns: 2;
+  }
+
+  & .scroll-x {
+    overflow-x: scroll;
+  }
+
+  & .hide-secrets .content-embed .secret {
+    display: none;
+  }
+
+  /* NOTABLES */
+  & .notable {
+    float: right;
+    padding: 0.5rem 1rem;
+    break-inside: avoid;
+
+    & h4 {
+      letter-spacing: 1px;
+      font-variant: small-caps;
+      font-family: var(--dnd5e-font-roboto);
+    }
+  }
+
+  /* Overview List
+   * Note: These hardcoded colors appear
+   * to be usable in both light/dark mode.
+   * May need to revisit */
+  & ol.overview-list {
+    & li:first-child {
+      counter-reset: overviewlist;
+    }
+
+    & li {
+      position: relative;
+      list-style-type: none;
+      counter-increment: overviewlist;
+    }
+
+    & li:before {
+      content: counter(overviewlist);
+      position: absolute;
+      z-index: 1;
+      width: 1rem;
+      height: 1rem;
+      left: -19px;
+      color: #fff;
+      background-color: #9c6739;
+      border-radius: 100%;
+      text-align: center;
+      z-index: 1;
+    }
+
+    & li:nth-child(odd):before {
+      background-color: #6e6c6c;
+    }
+
+    & li:after {
+      position: absolute;
+      content: "";
+      height: 90%;
+      left: -12px;
+      top: 9px;
+      z-index: 0;
+      border-left: 2px solid #c3a76e;
+    }
+
+    & li:nth-child(odd):after {
+      border-color: #6e6c6c;
+    }
+  }
+
+  /* Artwork framing */
+  [class*="-frame"] img {
+    border-width: 4px;
+    border-style: solid;
+  }
+
+  .top-frame img,
+  .left-frame img,
+  .side-frame img {
+    border-image: linear-gradient(to bottom, var(--mm-gold), 70%, transparent 95%);
+  }
+
+  .side-frame img {
+    border-image-slice: 0 1;
+  }
+
+  .left-frame img {
+    border-image-slice: 0 0 0 1;
+  }
+
+  .top-frame img {
+    border-image-slice: 1 1 0 1;
+  }
+
+  .right-corner-frame img {
+    border-image: radial-gradient(ellipse farthest-side at right top, var(--mm-gold) 0%, var(--mm-gold) 70%, transparent 95%);
+    border-image-slice: 1 1 0 0;
+  }
+
+  .bottom-frame img {
+    border-image: linear-gradient(to top, var(--mm-gold), 70%, transparent 95%);
+    border-image-slice: 0 1 1 1;
+  }
+
+  .cradle-frame img {
+    border-image: linear-gradient(to right, var(--mm-gold), 70%, transparent 95%);
+    border-image-slice: 1 0 1 1;
+  }
+
+  .right-cradle-frame img {
+    border-image: linear-gradient(to left, var(--mm-gold), 70%, transparent 95%);
+    border-image-slice: 1 1 1 0;
+  }
+
+  .corner-frame img {
+    border-image: radial-gradient(ellipse farthest-side at left top, var(--mm-gold) 0%, var(--mm-gold) 70%, transparent 95%);
+    border-image-slice: 1 0 0 1;
+  }
+
+  .bottom-corner-frame img {
+    border-image: radial-gradient(ellipse farthest-side at left bottom, var(--mm-gold) 0%, var(--mm-gold) 70%, transparent 95%);
+    border-image-slice: 0 0 1 1;
+  }
+
+  /* Embeds */
+  & .statblock {
+    break-inside: avoid;
+    min-width: min-content;
+
+    .statblock-title .content-link {
+      color: inherit;
+    }
+  }
+
+  & p.double-column+table {
+    margin-top: 0;
+
+    &:has(+ table),
+    &~table {
+      margin-bottom: 1rem;
+    }
+  }
+
+  & h2+.content-embed {
+    break-before: avoid;
+  }
+
+
+  figure.content-embed {
+    table.roll-table-embed {
+      break-inside: avoid;
+
+      button {
+        justify-self: center;
+      }
+    }
+
+    img+figcaption {
+      margin-block-start: 0.5em;
+    }
+
+    figcaption {
+      break-before: avoid;
+      break-inside: avoid;
+    }
+
+    .embed-caption {
+      color: var(--color-text-primary);
+    }
+  }
+
+  .caption-top .content-embed {
+    break-inside: avoid;
+    display: flex;
+    gap: 1ch;
+    flex-direction: column;
+
+    figcaption {
+      padding: 0;
+      margin-block-start: 0.5em;
+      order: -1;
+      break-before: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      cite::before {
+        content: "";
+      }
+
+      cite {
+        flex: 2 5 20%;
+        flex-grow: 2;
+        white-space: nowrap;
+        overflow-x: hidden;
+        font-size: smaller;
+      }
+
+      .embed-caption {
+        flex-shrink: 2;
+
+        p {
+          margin-top: 0;
+          margin-bottom: 0;
+          font-size: inherit;
+          font-style: normal;
+        }
+      }
+    }
+
+    /* top caption rolltables serve as titles.
+     * Emulates small caps, left aligned table headers
+     * in book. */
+    >.roll-table-embed+figcaption {
+      .embed-caption {
+        font: var(--font-h5);
+        font-size: var(--font-h4-size);
+        font-family: var(--dnd5e-font-roboto);
+        letter-spacing: 1px;
+        font-variant: small-caps;
+        text-align: left;
+        font-style: normal;
+        font-weight: bold;
+      }
+    }
+
+    >.roll-table-embed {
+      margin-block-start: 0;
     }
   }
 }

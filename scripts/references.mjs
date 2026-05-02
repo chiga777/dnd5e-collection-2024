@@ -269,7 +269,7 @@ const replacementRules = {
   consumables: "consumables",
   itemspells: "itemspells",
   charges: "charges",
-  spellscroll: "spellscroll",
+  spellscroll: "Compendium.dnd5e-collection-2024.dmg-content.Item.EUmvU6AssH8rcIE3",
   creaturetags: "creaturetags",
   telepathy: "Compendium.dnd5e-collection-2024.players-handbook.JournalEntry.JaBtNuiFJZaRoJWX.JournalEntryPage.gMTdiYGmbiwDyymt",
   legendaryactions: "legendaryactions",

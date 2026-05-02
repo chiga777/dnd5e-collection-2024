@@ -2,38 +2,33 @@
 /*  Project Variables                       */
 /* ---------------------------------------- */
 
-/* ---------------------------------------- */
-/*  PHB                                     */
-/* ---------------------------------------- */
-.phb,
-.table-of-contents[data-compendium-id="dnd5e-collection-2024.players-handbook"] {
-    /* ---------------------------------------- */
-    /*  Colors                                  */
-    /* ---------------------------------------- */
-    container-name: --players-handbook;
-    --narrative-border: #fff;
-    --notable-background: #ebdbcd;
-    --table-color-odd: #dce9ee;
-    --table-color-even: #f2f7f9;
-    --table-color-hover: light-dark(#ebdbcd, color-mix(in oklab, var(--dnd5e-color-gold) 50%, var(--color-text-dark-primary) 50%));
-    --table-header-color: #fdfdfd;
-    --table-header-text-color: var(--color-text-primary);
-    --phb-red: #5a0507;
-    --phb-chapter-color: light-dark(var(--phb-red), var(--dnd5e-color-gold));
-    --phb-border-image: url(../assets/ui/phb/page-background.webp) 40 40 40 10 fill / 5% 3% 2% 1% / 0 round;
-    --phb-saturated-gold: light-dark(color(srgb 0.900816 0.74032 0.420752), var(--dnd5e-color-gold));
-    --phb-social-highlight: light-dark(#eddbb9, var(--dnd5e-color-blue-gray-1));
-    --phb-social-background: light-dark(rgb(241, 234, 215), var(--dnd5e-color-dark-gray));
+.portal-app {
 
-    /* Core/System */
-    --color-text-emphatic: light-dark(var(--phb-red), var(--dnd5e-color-gold));
-  }
+  container-name: --portal;
+  /* Colors */
+  --narrative-border: #fff;
+  --notable-background: #ebdbcd;
+  --table-color-odd: #dce9ee;
+  --table-color-even: #f2f7f9;
+  --table-color-hover: light-dark(#ebdbcd, color-mix(in oklab, var(--dnd5e-color-gold) 50%, var(--color-text-dark-primary) 50%));
+  --table-header-color: #fdfdfd;
+  --table-header-text-color: var(--color-text-primary);
+  --phb-red: #5a0507;
+  --phb-chapter-color: light-dark(var(--phb-red), var(--dnd5e-color-gold));
+  --phb-border-image: url(../assets/ui/dmg/page-background.webp) 40 40 40 10 fill / 5% 3% 2% 1% / 0 round;
+  --phb-saturated-gold: light-dark(color(srgb 0.900816 0.74032 0.420752), var(--dnd5e-color-gold));
+  --phb-social-highlight: light-dark(#eddbb9, var(--dnd5e-color-blue-gray-1));
+  --phb-social-background: light-dark(rgb(241, 234, 215), var(--dnd5e-color-dark-gray));
+  --phb-title-gradient: linear-gradient(to bottom, light-dark(var(--phb-chapter-color), var(--dnd5e-color-gold)) 35%, light-dark(#79332c, var(--dnd5e-color-gold)) 80%);
+  --dnd5e-srd-color-background: light-dark(#efefef99, #efefef09);
+  --icon-chiga-color: light-dark(#000000, #e5e5e5);
 
-@container --players-handbook style(--color-scheme: light) {
+  /* Core/System */
+  --color-text-emphatic: light-dark(var(--phb-red), var(--dnd5e-color-gold));
+}
 
-    /* ---------------------------------------- */
-    /*  Core/System Variable Overrides          */
-    /* ---------------------------------------- */
+@container --portal style(--color-scheme: light) {
+
   .window-content {
     --dnd5e-journal-content-background: none;
 
@@ -48,7 +43,79 @@
     --dnd5e-block-background: var(--notable-background);
   }
 
-  .advice, .quest {
+  .advice,
+  .quest {
+    --dnd5e-block-background: url(/systems/dnd5e/ui/parchment.jpg);
+  }
+
+  .narrative {
+    --dnd5e-block-background: #d5dbd4;
+  }
+
+  /* Core Applications */
+  .journal-sidebar .toc {
+    /* Used to border the active page(s) in the "pages list" */
+    --color-warm-2: var(--notable-background);
+  }
+}
+
+@container --portal style(--color-scheme: dark) {
+  .window-content {
+    --phb-border-image: none;
+    --dnd5e-sheet-background: url(/ui/denim075.png);
+  }
+
+  thead {
+    border: none;
+  }
+}
+
+/* ---------------------------------------- */
+/*  PHB                                     */
+/* ---------------------------------------- */
+.phb,
+.table-of-contents[data-compendium-id="dnd5e-collection-2024.players-handbook"] {
+
+  container-name: --players-handbook;
+  /* Colors */
+  --narrative-border: #fff;
+  --notable-background: #ebdbcd;
+  --table-color-odd: #dce9ee;
+  --table-color-even: #f2f7f9;
+  --table-color-hover: light-dark(#ebdbcd, color-mix(in oklab, var(--dnd5e-color-gold) 50%, var(--color-text-dark-primary) 50%));
+  --table-header-color: #fdfdfd;
+  --table-header-text-color: var(--color-text-primary);
+  --phb-red: #5a0507;
+  --phb-chapter-color: light-dark(var(--phb-red), var(--dnd5e-color-gold));
+  --phb-border-image: url(../assets/ui/phb/page-background.webp) 40 40 40 10 fill / 5% 3% 2% 1% / 0 round;
+  --phb-saturated-gold: light-dark(color(srgb 0.900816 0.74032 0.420752), var(--dnd5e-color-gold));
+  --phb-social-highlight: light-dark(#eddbb9, var(--dnd5e-color-blue-gray-1));
+  --phb-social-background: light-dark(rgb(241, 234, 215), var(--dnd5e-color-dark-gray));
+  --phb-title-gradient: linear-gradient(to bottom, light-dark(var(--phb-chapter-color), var(--dnd5e-color-gold)) 35%, light-dark(#79332c, var(--dnd5e-color-gold)) 80%);
+
+  /* Core/System */
+  --color-text-emphatic: light-dark(var(--phb-red), var(--dnd5e-color-gold));
+}
+
+@container --players-handbook style(--color-scheme: light) {
+
+  /* Colors */
+  .window-content {
+    --dnd5e-journal-content-background: none;
+
+    /* Tables */
+    --dnd5e-color-table-row-even: var(--table-color-even);
+    --dnd5e-color-table-row-odd: var(--table-color-odd);
+    --dnd5e-color-table-header-1: var(--table-header-color);
+    --dnd5e-color-table-header-2: var(--dnd5e-color-table-header-1);
+  }
+
+  .notable {
+    --dnd5e-block-background: var(--notable-background);
+  }
+
+  .advice,
+  .quest {
     --dnd5e-block-background: url(/systems/dnd5e/ui/parchment.jpg);
   }
 
@@ -80,10 +147,9 @@
 .dmg,
 .dmg-tracker,
 .table-of-contents[data-compendium-id="dnd5e-collection-2024.dungeon-masters-guide"] {
-  /* ---------------------------------------- */
-  /*  Colors                                  */
-  /* ---------------------------------------- */
+
   container-name: --dungeon-masters-guide;
+  /* Colors */
   --narrative-border: rgb(124, 140, 117);
   --narrative-bg-color: rgb(213, 219, 212);
   --narrative-border-color: rgb(124, 140, 117);
@@ -100,6 +166,7 @@
   --phb-saturated-gold: light-dark(color(srgb 0.900816 0.74032 0.420752), var(--dnd5e-color-gold));
   --dmg-saturated-teal: #466f7e;
   --dmg-field-color: light-dark(rgb(224, 231, 228), var(--dnd5e-color-dark-gray));
+  --dmg-title-gradient: linear-gradient(to bottom, light-dark(var(--dmg-chapter-color), rgb(241, 156, 187)) 35%, light-dark(#76756b, rgb(241, 156, 187)) 80%);
 
   --dmg-bubble-bg: radial-gradient(circle at center,
       rgb(112, 147, 150) 40%,
@@ -140,7 +207,8 @@
     --dnd5e-block-border-color: var(--narrative-border-color);
   }
 
-  .advice, .quest {
+  .advice,
+  .quest {
     --dnd5e-block-background: url("../../../systems/dnd5e/ui/parchment.jpg");
   }
 
@@ -157,16 +225,121 @@
   }
 }
 
-.table-of-contents[data-compendium-id="dnd5e-collection-2024.index"] {
-    /* ---------------------------------------- */
-    /*  Colors                                  */
-    /* ---------------------------------------- */
-    --narrative-border: #fff;
-    --notable-color: #ebdbcd;
-    --table-color-odd: #dce9ee;
-    --table-color-even: #f2f7f9;
-    --table-header-color: #fdfdfd;
-    --phb-red: #5a0507;
-    --phb-border-image: url(../assets/ui/phb/page-background.webp) 40 40 40 10 fill / 5% 3% 2% 1% / 0 round;
-    --phb-saturated-gold: light-dark(color(srgb 0.900816 0.74032 0.420752), var(--dnd5e-color-gold));
+/* ---------------------------------------- */
+/*  MM                                      */
+/* ---------------------------------------- */
+.table-of-contents[data-compendium-id="dnd5e-collection-2024.monster-manual"],
+.mm {
+
+  container-name: --monster-manual;
+  /* Colors */
+  --mm-red: rgb(97, 42, 42);
+  --mm-olive: rgb(122, 124, 80);
+  --mm-brown: #7b5043;
+  --mm-tan: #fcf3f0;
+  --mm-yellow: #f1ebdd;
+  --mm-gold: hsla(40, 40%, 66%, 1);
+  --mm-peach: rgb(194, 128, 108);
+  --saturated-mm-gold: color(srgb 0.900816 0.74032 0.420752);
+  --notable-color: #d4e0e3;
+  --mm-link-shadow: 0 0 8px var(--saturated-mm-gold);
+  --table-header-bg: light-dark(#fdfdfd, var(--dnd5e-color-olive));
+  --table-header-text: light-dark(var(--color-text-dark-primary), var(--color-text-light-0));
+  --table-color-odd: light-dark(#e1e8df, var(--table-row-color-odd));
+  --table-color-even: light-dark(#f5f7f4, var(--table-row-color-even));
+  --table-color-hover: light-dark(#d8e0fa, var(--color-cool-3));
+  --mm-h-border-color: var(--saturated-mm-gold);
+  --mm-title-gradient: linear-gradient(to bottom, light-dark(var(--mm-red), var(--mm-olive)) 35%, light-dark(var(--mm-peach), var(--saturated-mm-gold)) 80%);
+
+  /* Layout */
+  --column-count: 2;
+  --column-width: 400px;
+  --column-gap: 10px;
+
+  .statblock-list {
+    --grid-column-count: 2;
+  }
+
+  --mm-border-image: url(../assets/ui/mm/wide-page-bg.webp) 135 100 fill / 10% 7% / 0 round;
+
+  /* ---------------------------------------- */
+  /*  Variable Overrides                      */
+  /* ---------------------------------------- */
+  --dnd5e-color-table-row-even: var(--table-color-even);
+  --dnd5e-color-table-row-odd: var(--table-color-odd);
+  --dnd5e-color-table-header-1: var(--table-header-bg);
+  --dnd5e-color-table-header-2: var(--table-header-bg);
+  --color-text-emphatic: light-dark(var(--mm-red), var(--mm-olive));
+  --dnd5e-color-table-border: transparent;
+
+  .notable,
+  .advice,
+  .quest,
+  .narrative {
+    --color-text-emphatic: initial;
+  }
+
+  /* ---------------------------------------- */
+  /*  Journals                                */
+  /* ---------------------------------------- */
+  &.journal-entry {
+    /* Font Sizes */
+    --dnd5e-journal-title-size: 2.2rem;
+    --dnd5e-journal-h1-size: 2rem;
+    --dnd5e-journal-h2-size: 1.8rem;
+    --dnd5e-journal-h3-size: 1.6rem;
+    --dnd5e-journal-h4-size: 1.4rem;
+    --font-h5-size: 1.2rem;
+    --font-h6-size: 1rem;
+    --body-size: 1rem;
+  }
+
+  /* ---------------------------------------- */
+  /*  Pull Quotes                             */
+  /* ---------------------------------------- */
+  & .quote-left,
+  & .quote {
+    --size: 50%;
+    --side-gutter: 10%;
+    --vert-gutter: 1em;
+    --edge: 1em;
+    --overlap: calc(-0.6 * var(--edge));
+    --w: 2px;
+    --octogon: polygon(0 70%,
+        15% 100%,
+        85% 100%,
+        100% 70%,
+        100% 30%,
+        85% 0,
+        15% 0,
+        0 30%,
+        var(--w) calc(30% + var(--w) / 2),
+        15% var(--w),
+        85% var(--w),
+        calc(100% - var(--w)) calc(30% + var(--w) / 2),
+        calc(100% - var(--w)) calc(70% - var(--w) / 2),
+        85% calc(100% - var(--w)),
+        15% calc(100% - var(--w)),
+        var(--w) calc(70% - var(--w) / 2),
+        var(--w) calc(30% + var(--w) / 2),
+        0 30%);
+  }
+
+}
+
+@container --monster-manual style(--color-scheme: light) {
+  .notable {
+    --dnd5e-block-background: var(--notable-color);
+  }
+}
+
+@container --monster-manual style(--color-scheme: dark) {
+  .window-content {
+    --mm-border-image: none;
+    --dnd5e-sheet-background: url(/ui/denim075.png);
+  }
+
+  thead {
+    border: none;
+  }
 }

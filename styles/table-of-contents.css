@@ -2,83 +2,81 @@
 /*  PHB                                     */
 /* ---------------------------------------- */
 .table-of-contents[data-compendium-id="dnd5e-collection-2024.players-handbook"] {
-    --dnd5e-srd-color-chapter-header: var(--color-text-emphatic);
-    --dnd5e-srd-color-border: var(--color-text-emphatic);
-    --dnd5e-srd-color-box-header: #fff;
+  --dnd5e-srd-color-chapter-header: var(--color-text-emphatic);
+  --dnd5e-srd-color-border: var(--color-text-emphatic);
+  --dnd5e-srd-color-box-header: #fff;
 
-    /* Frame styling: Background image and scrollbars */
-    & .window-content {
+  /* Frame styling: Background image and scrollbars */
+  & .window-content {
 
-      border-image: var(--phb-border-image);
-      color: var(--color-text-primary);
-      & .contents {
-        background:none;
-      }
+    border-image: var(--phb-border-image);
+    color: var(--color-text-primary);
 
-      /* 篡改目录頭 */
-      & .contents > header h2 {
-        font-size: 0;
-      }
-
-      & .contents > header h2::before {
-        content: "玩家手册 Player's Handbook";
-        font-size: 21px;
-        font-family: var(--dnd5e-font-modesto);
-        font-weight: bold;
-        color: light-dark(#fff, var(--dnd5e-color-dark));
-      }
-      /* 篡改目录頭 */
-
-      scrollbar-width: thin;
-      scrollbar-color: var(--color-text-emphatic) transparent;
-
-      &::-webkit-scrollbar-track {
-        box-shadow: none;
-        border-radius: 0;
-      }
-
-      &::-webkit-scrollbar-thumb {
-        border: none;
-        background: var(--color-text-emphatic);
-      }
+    & .contents {
+      background: none;
     }
 
-    & .contents section {
-      columns: 30ch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-text-emphatic) transparent;
+
+    &::-webkit-scrollbar-track {
+      box-shadow: none;
+      border-radius: 0;
     }
 
-    /* Journals not showing their child pages should
+    &::-webkit-scrollbar-thumb {
+      border: none;
+      background: var(--color-text-emphatic);
+    }
+
+    /* 篡改目录頭 */
+    & .contents>header h2 {
+      font-size: 0;
+    }
+
+    & .contents>header h2::before {
+      content: "玩家手册 Player's Handbook";
+      font-size: 21px;
+      font-family: var(--dnd5e-font-modesto);
+      font-weight: bold;
+      color: light-dark(#fff, var(--dnd5e-color-dark));
+    }
+  }
+
+  & .contents section {
+    columns: 30ch;
+  }
+
+  /* Journals not showing their child pages should
      * not be bold */
-    & .special-entry:not(.child-pages) a {
-      font-weight: normal;
+  & .special-entry:not(.child-pages) a {
+    font-weight: normal;
+  }
+
+  & .contents .chapter {
+    /* Allow chapters to column break */
+    break-inside: auto;
+
+    /* "sub-chapter" entries should stay as a group */
+    & .child-pages {
+      break-inside: avoid-column;
     }
 
-    & .contents .chapter {
-      /* Allow chapters to column break */
-      break-inside:auto;
-
-      /* "sub-chapter" entries should stay as a group */
-      & .child-pages {
-        break-inside: avoid-column;
-      }
-
-      /* Top level pages are aligned left in print ToC */
-      & > .pages {
-        margin-left:0;
-      }
-
-      /* Chapter font and slightly increased size */
-      & h3 a {
-        font-family: var(--dnd5e-font-modesto);
-        font-size: larger;
-      }
-
-      & h3 + .pages {
-        break-before:avoid;
-      }
-
+    /* Top level pages are aligned left in print ToC */
+    &>.pages {
+      margin-left: 0;
     }
 
+    /* Chapter font and slightly increased size */
+    & h3 a {
+      font-family: var(--dnd5e-font-modesto);
+      font-size: larger;
+    }
+
+    & h3+.pages {
+      break-before: avoid;
+    }
+  }
 }
 
 /* ---------------------------------------- */
@@ -91,27 +89,14 @@
 
   /* Frame styling: Background image and scrollbars */
   .window-content {
+
     border-image: var(--dmg-border-image);
     color: var(--color-text-primary);
 
     .contents {
-      background:none;
+      background: none;
     }
 
-    /* 篡改目录頭 */
-    & .contents > header h2 {
-      font-size: 0;
-    }
-
-    & .contents > header h2::before {
-      content: "城主指南 Dungeon Master's Guide";
-      font-size: 21px;
-      font-family: var(--dnd5e-font-modesto);
-      font-weight: bold;
-      color: light-dark(#fff, var(--dnd5e-color-dark));
-    }
-    /* 篡改目录頭 */
-    
     scrollbar-width: thin;
     scrollbar-color: var(--color-text-emphatic) transparent;
 
@@ -123,6 +108,19 @@
     &::-webkit-scrollbar-thumb {
       border: none;
       background: var(--color-text-emphatic);
+    }
+
+    /* 篡改目录頭 */
+    & .contents>header h2 {
+      font-size: 0;
+    }
+
+    & .contents>header h2::before {
+      content: "城主指南 Dungeon Master's Guide";
+      font-size: 21px;
+      font-family: var(--dnd5e-font-modesto);
+      font-weight: bold;
+      color: light-dark(#fff, var(--dnd5e-color-dark));
     }
   }
 
@@ -138,7 +136,7 @@
 
   .contents .chapter {
     /* Allow chapters to column break */
-    break-inside:auto;
+    break-inside: auto;
 
     /* "sub-chapter" entries should stay as a group */
     .child-pages {
@@ -146,8 +144,8 @@
     }
 
     /* Top level pages are aligned left in print ToC */
-    & > .pages {
-      margin-left:0;
+    &>.pages {
+      margin-left: 0;
     }
 
     /* Chapter font and slightly increased size */
@@ -156,31 +154,31 @@
       font-size: larger;
     }
 
-    h3 + .pages {
-      break-before:avoid;
+    h3+.pages {
+      break-before: avoid;
     }
-
   }
 }
 
 /* ---------------------------------------- */
-/*  Dc⁷                                     */
+/*  MM                                      */
 /* ---------------------------------------- */
-.table-of-contents[data-compendium-id="dnd5e-collection-2024.index"] {
-  --dnd5e-srd-color-chapter-header: var(--phb-red);
-  --dnd5e-srd-color-border: var(--phb-red);
+.table-of-contents[data-compendium-id="dnd5e-collection-2024.monster-manual"] {
+  --dnd5e-srd-color-chapter-header: var(--color-text-emphatic);
+  --dnd5e-srd-color-border: var(--color-text-emphatic);
   --dnd5e-srd-color-box-header: #fff;
 
-  /* Frame styling: Background image and scrollbars */
   & .window-content {
 
-    border-image: var(--phb-border-image);
+    border-image: var(--mm-border-image);
+    color: var(--color-text-primary);
+
     & .contents {
-      background:none;
+      background: none;
     }
 
     scrollbar-width: thin;
-    scrollbar-color: var(--phb-red) transparent;
+    scrollbar-color: var(--color-text-emphatic) transparent;
 
     &::-webkit-scrollbar-track {
       box-shadow: none;
@@ -189,44 +187,49 @@
 
     &::-webkit-scrollbar-thumb {
       border: none;
-      background: var(--phb-red);
-    }
-  }
-
-  & .contents section {
-    columns: 30ch;
-  }
-
-  /* Journals not showing their child pages should
-   * not be bold */
-  & .special-entry:not(.child-pages) a {
-    font-weight: normal;
-  }
-
-  & .contents .chapter {
-    /* Allow chapters to column break */
-    break-inside:auto;
-
-    /* "sub-chapter" entries should stay as a group */
-    & .child-pages {
-      break-inside: avoid-column;
+      background: var(--color-text-emphatic);
     }
 
-    /* Top level pages are aligned left in print ToC */
-    & > .pages {
-      margin-left:0;
+    /* 篡改目录頭 */
+    & .contents>header h2 {
+      font-size: 0;
     }
 
-    /* Chapter font and slightly increased size */
-    & h3 a {
+    & .contents>header h2::before {
+      content: "怪物图鉴 Monster Manual";
+      font-size: 21px;
       font-family: var(--dnd5e-font-modesto);
-      font-size: larger;
+      font-weight: bold;
+      color: light-dark(#fff, var(--dnd5e-color-dark));
     }
-
-    & h3 + .pages {
-      break-before:avoid;
-    }
-
   }
 
+  & aside {
+    order: 2;
+  }
+
+  & .contents>section {
+    column-count: unset;
+    column-width: 30ch;
+
+    &>div {
+      break-inside: auto;
+
+      & ul {
+        margin-inline-start: 0.5rem;
+      }
+    }
+
+    & ul li.special-entry:not(.child-pages)>a {
+      font-weight: normal;
+    }
+  }
+
+  & ul>li:has(ul) {
+    break-inside: avoid-column;
+  }
+
+  & h3 {
+    font-family: var(--dnd5e-font-modesto);
+  }
 }
